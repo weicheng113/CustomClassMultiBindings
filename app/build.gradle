@@ -1,0 +1,79 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven() {
+            name 'RoboBinding AspectJPlugin Maven Repository'
+            url "https://github.com/RoboBinding/RoboBinding-aspectj-plugin/raw/master/mavenRepo"
+            //url "file://D:/git/RoboBinding-aspectj-plugin/mavenRepo"
+        }
+    }
+
+    dependencies {
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.+'
+        classpath 'org.robobinding:aspectj-plugin:0.8.4'
+    }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'org.robobinding.android-aspectj'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        applicationId "com.example.customclassmultibindings"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+
+    lintOptions {
+        disable 'UnusedAttribute', 'ValidFragment', 'GradleDependency', 'OnClick', 'MissingPrefix', 'MenuTitle'
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories {
+    maven() {
+        name 'SonaType snapshot repository'
+        url 'https://oss.sonatype.org/content/repositories/snapshots'
+    }
+    /*
+    maven() {
+        name 'RoboBinding Framework Maven Repository'
+        url "file://D:/git/RoboBinding/framework/mavenRepo"
+    }
+    maven() {
+        name 'RoboBinding CodeGen Maven Repository'
+        url "file://D:/git/RoboBinding/codegen/mavenRepo"
+    }*/
+}
+
+ext {
+    //robobindingVersion = 'latest.integration'
+    robobindingVersion = '0.8.10-SNAPSHOT'
+}
+
+dependencies {
+    //compile fileTree(dir: 'libs', include: '*.jar')
+    compile ("org.robobinding:robobinding:${robobindingVersion}:with-aop") {
+        exclude group: 'com.google.guava'
+    }
+    compile 'com.android.support:appcompat-v7:22.1.1'
+    compile 'com.google.guava:guava:16.0'
+
+    //aspectPath fileTree(dir: 'libs', include: '*.jar')
+    aspectPath "org.robobinding:robobinding:${robobindingVersion}:with-aop"
+
+    apt "org.robobinding:codegen:$robobindingVersion"
+}
