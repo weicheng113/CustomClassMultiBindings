@@ -1,11 +1,13 @@
-package com.example.customclassmultibindings;
+package com.example.customclassmultibindings.view;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.customclassmultibindings.R;
+import com.example.customclassmultibindings.binding.CustomClass;
 
 /**
  *

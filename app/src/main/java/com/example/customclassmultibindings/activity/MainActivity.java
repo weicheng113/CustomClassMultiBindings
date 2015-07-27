@@ -1,11 +1,15 @@
-package com.example.customclassmultibindings;
+package com.example.customclassmultibindings.activity;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.example.customclassmultibindings.view.CustomView;
+import com.example.customclassmultibindings.viewmodel.MainPresentationModel;
+import com.example.customclassmultibindings.R;
+import com.example.customclassmultibindings.binding.ViewBindingForCustomView;
 
 import org.robobinding.binder.BinderFactoryBuilder;
 
