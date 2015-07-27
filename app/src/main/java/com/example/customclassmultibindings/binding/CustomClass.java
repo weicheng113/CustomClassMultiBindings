@@ -1,4 +1,4 @@
-package com.example.customclassmultibindings;
+package com.example.customclassmultibindings.binding;
 
 /**
  * Created by cheng on 2015/7/26.

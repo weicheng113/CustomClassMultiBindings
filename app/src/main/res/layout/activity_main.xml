@@ -10,12 +10,12 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <com.example.customclassmultibindings.CustomView
+    <com.example.customclassmultibindings.view.CustomView
         bind:customClass="{customClass1}"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <com.example.customclassmultibindings.CustomView
+    <com.example.customclassmultibindings.view.CustomView
         bind:customClass="{customClass2}"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

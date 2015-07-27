@@ -1,4 +1,6 @@
-package com.example.customclassmultibindings;
+package com.example.customclassmultibindings.binding;
+
+import com.example.customclassmultibindings.view.CustomView;
 
 import org.robobinding.annotation.ViewBinding;
 import org.robobinding.customviewbinding.CustomViewBinding;
